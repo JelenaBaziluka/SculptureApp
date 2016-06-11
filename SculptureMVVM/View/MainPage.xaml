@@ -1,0 +1,79 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SculptureMVVM.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+    xmlns:ViewModel="using:SculptureMVVM.ViewModel"
+
+    x:Class="SculptureMVVM.View.MainPage"
+    mc:Ignorable="d">
+    
+
+ <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+
+        </Grid.ColumnDefinitions>
+     
+       
+        <Grid Grid.Column="0" Grid.Row="1">
+            <StackPanel Margin="0,49,0,-49">
+                <ListView x:Name="listView" HorizontalAlignment="Right" Height="600" Margin="20,80,0,0" VerticalAlignment="Top"  Width="350" ItemsSource="{Binding SculptureCatalogSingleton.Sculptures}"/>
+           <ScrollBar HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--New Sculpture-->
+        <Grid Grid.Column="1" Grid.Row="1" Margin="10,70,10,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0"  Text="Name:"   HorizontalAlignment="Right"/>
+            <TextBox x:Name="AddName" Text="{Binding NewSculpture.Sculpture_Name, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Address:" HorizontalAlignment="Right" Margin="0,0,0,10" />
+            <TextBox x:Name="AddAddress" Text="{Binding NewSculpture.Sculpture_Adress, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <TextBlock  Grid.Column="0" Grid.Row="2" Text="ID:" HorizontalAlignment="Right"/>
+            <TextBox x:Name="AddId" Text="{Binding NewSculpture.Sculpture_Id, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="Type:" HorizontalAlignment="Right"/>
+            <TextBox x:Name="AddType" Text="{Binding NewSculpture.TypeLoc, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="Material:" HorizontalAlignment="Right"/>
+            <TextBox x:Name="AddMaterial" Text="{Binding NewSculpture.Material, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="5" Text="Placement:" HorizontalAlignment="Right"/>
+            <TextBox x:Name="AddPlacement" Text="{Binding NewSculpture.Sculpture_Placement}" Grid.Row="5" Grid.Column="1" Margin="0,0,0,10"/>
+            <Button x:Name="CreateSculp" Grid.Row="6" Grid.Column="0" Click="{Binding CreateCommand}"  Margin="30,10,0,0" />
+            <Button Grid.Row="6" Grid.Column="1" Content="Add Damage"  Margin="30,10,0,0"/>
+        </Grid>
+    </Grid>
+</Page>
+<!--Click="{x:Bind ViewModel.AddSculpture}"Content="{Binding CreateCommand}"Click="{x:Bind ViewModel.AddSculpture}"-->
+
+
+
+
+
+
